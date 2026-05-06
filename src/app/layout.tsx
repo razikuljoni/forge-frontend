@@ -1,3 +1,6 @@
+import { AuthProvider } from "@/providers/AuthProvider";
+import { BookingProvider } from "@/providers/BookingProvider";
+import { ToastProvider } from "@/providers/ToastProvider";
 import type { Metadata } from "next";
 import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
@@ -24,7 +27,13 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className={`scroll-smooth ${inter.variable} ${oswald.variable}`}>
-            <body className="texture-overlay font-body">{children}</body>
+            <body className="texture-overlay font-body">
+                <AuthProvider>
+                    <ToastProvider>
+                        <BookingProvider>{children}</BookingProvider>
+                    </ToastProvider>
+                </AuthProvider>
+            </body>
         </html>
     );
 }

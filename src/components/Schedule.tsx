@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const scheduleData: Record<string, any[]> = {
   mon: [
     { time: '05:30', name: 'Morning Power Lift', coach: 'Marcus C.', level: 'Advanced', spots: 2 },
@@ -91,12 +92,12 @@ export default function Schedule() {
 
         <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
           {days.map((day) => (
-            <button 
+            <button
               key={day.id}
               onClick={() => setActiveDay(day.id)}
               className={`whitespace-nowrap text-[10px] font-bold uppercase tracking-wider px-4 py-2 transition-all ${
-                activeDay === day.id 
-                ? 'bg-forge-orange text-forge-black' 
+                activeDay === day.id
+                ? 'bg-forge-orange text-forge-black'
                 : 'bg-forge-gray text-forge-silver hover:text-white'
               }`}
             >

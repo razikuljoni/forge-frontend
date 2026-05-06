@@ -19,8 +19,22 @@ const config = {
                     orangeLight: "#FF7A2E",
                     orangeDark: "#CC4B00",
                 },
+
+                bk: "#0A0A0A",
+                dk: "#111111",
+                cd: "#1A1A1A",
+                el: "#222222",
+                bd: "#2A2A2A",
+                mt: "#555555",
+                sv: "#B8B8B8",
+                or: "#FF5A00",
+                ord: "#CC4800",
+                orl: "#FF7A33",
             },
             fontFamily: {
+                // dp: ['"Bebas Neue"', "sans-serif"],
+                // bd: ['"Barlow Condensed"', "sans-serif"],
+
                 heading: ["var(--font-oswald)", "sans-serif"],
                 body: ["var(--font-inter)", "sans-serif"],
             },
