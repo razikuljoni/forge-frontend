@@ -1,32 +1,40 @@
 {
-    "name": "forge-next",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "next dev --webpack",
-        "dev:turbo": "next dev",
-        "build": "next build",
-        "start": "next start",
-        "typecheck": "tsc --noEmit",
-        "lint": "pnpm typecheck && eslint ."
-    },
-    "dependencies": {
-        "@iconify/react": "^6.0.2",
-        "framer-motion": "^12.38.0",
-        "next": "16.2.4",
-        "react": "19.2.5",
-        "react-dom": "19.2.5"
-    },
-    "devDependencies": {
-        "@tailwindcss/postcss": "^4.2.4",
-        "@types/node": "^25.6.0",
-        "@types/react": "^19.2.14",
-        "@types/react-dom": "^19.2.3",
-        "eslint": "^9.39.4",
-        "eslint-config-next": "16.2.4",
-        "postcss": "^8.5.14",
-        "tailwindcss": "^4.2.4",
-        "typescript": "^6.0.3"
-    },
-    "packageManager": "pnpm@10.33.3+sha512.a19744364a7e248b92657a4ca5973f9354d21caf982579674b1c539f32c7420c47138ad8b1254df07aba9bc782d9b3029e3db34d5dbff974326eb74dac8ff489"
+  "name": "forge",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack",
+    "dev:turbo": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "pnpm typecheck && eslint .",
+    "format": "prettier --write .",
+    "release": "standard-version",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@iconify/react": "^6.0.2",
+    "framer-motion": "^12.38.0",
+    "next": "16.2.4",
+    "react": "19.2.5",
+    "react-dom": "19.2.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.4",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "16.2.4",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.2",
+    "postcss": "^8.5.14",
+    "prettier": "^3.8.3",
+    "standard-version": "^9.5.0",
+    "tailwindcss": "^4.2.4",
+    "typescript": "^6.0.3"
+  },
+  "packageManager": "pnpm@10.33.3+sha512.a19744364a7e248b92657a4ca5973f9354d21caf982579674b1c539f32c7420c47138ad8b1254df07aba9bc782d9b3029e3db34d5dbff974326eb74dac8ff489"
 }
