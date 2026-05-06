@@ -19,18 +19,18 @@ function CoachCard({ name, role, certs, exp, specialty, img }: CoachCardProps) {
       whileHover={{ y: -5 }}
       className="coach-card group cursor-pointer"
     >
-      <div className="relative overflow-hidden aspect-[3/4] bg-forge-gray">
+      <div className="relative overflow-hidden aspect-3/4 bg-forge-gray">
         <img 
           src={img} 
           alt={name} 
           className="w-full h-full object-cover grayscale contrast-[1.2] brightness-[0.75] transition-all duration-500 group-hover:grayscale-0 group-hover:contrast-[1.1] group-hover:brightness-[0.9] group-hover:scale-105" 
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-forge-black via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-forge-black via-transparent to-transparent" />
         <div className="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-300">
-          <a href="#" className="w-8 h-8 bg-forge-black/70 flex items-center justify-center hover:bg-forge-orange transition-colors backdrop-blur-sm">
+          <a href="#" className="w-8 h-8 bg-forge-black/70 flex items-center justify-center hover:bg-forge-orange transition-colors backdrop-blur-xs">
             <Icon icon="lucide:instagram" className="text-white" width="14" />
           </a>
-          <a href="#" className="w-8 h-8 bg-forge-black/70 flex items-center justify-center hover:bg-forge-orange transition-colors backdrop-blur-sm">
+          <a href="#" className="w-8 h-8 bg-forge-black/70 flex items-center justify-center hover:bg-forge-orange transition-colors backdrop-blur-xs">
             <Icon icon="lucide:linkedin" className="text-white" width="14" />
           </a>
         </div>

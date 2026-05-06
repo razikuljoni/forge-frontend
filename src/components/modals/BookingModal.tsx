@@ -90,7 +90,7 @@ function BookingModal({
                         name="name"
                         required
                         defaultValue={user?.name}
-                        className="w-full bg-cd border border-bd px-3 py-2 font-bd text-sm text-white focus:outline-none focus:border-or transition-colors"
+                        className="w-full bg-cd border border-bd px-3 py-2 font-bd text-sm text-white focus:outline-hidden focus:border-or transition-colors"
                     />
                 </div>
                 <div>
@@ -102,7 +102,7 @@ function BookingModal({
                         type="email"
                         required
                         defaultValue={user?.email}
-                        className="w-full bg-cd border border-bd px-3 py-2 font-bd text-sm text-white focus:outline-none focus:border-or transition-colors"
+                        className="w-full bg-cd border border-bd px-3 py-2 font-bd text-sm text-white focus:outline-hidden focus:border-or transition-colors"
                     />
                 </div>
                 <div>
@@ -113,7 +113,7 @@ function BookingModal({
                         name="phone"
                         type="tel"
                         defaultValue={user?.phone}
-                        className="w-full bg-cd border border-bd px-3 py-2 font-bd text-sm text-white focus:outline-none focus:border-or transition-colors"
+                        className="w-full bg-cd border border-bd px-3 py-2 font-bd text-sm text-white focus:outline-hidden focus:border-or transition-colors"
                     />
                 </div>
                 <div>
@@ -124,7 +124,7 @@ function BookingModal({
                         name="program"
                         required
                         defaultValue={prefill?.programId}
-                        className="w-full bg-cd border border-bd px-3 py-2 font-bd text-sm text-white focus:outline-none focus:border-or transition-colors"
+                        className="w-full bg-cd border border-bd px-3 py-2 font-bd text-sm text-white focus:outline-hidden focus:border-or transition-colors"
                     >
                         <option value="">Select a program</option>
                         {programs.map((p) => (
@@ -144,7 +144,7 @@ function BookingModal({
                         required
                         defaultValue={new Date().toISOString().split("T")[0]}
                         min={new Date().toISOString().split("T")[0]}
-                        className="w-full bg-cd border border-bd px-3 py-2 font-bd text-sm text-white focus:outline-none focus:border-or transition-colors"
+                        className="w-full bg-cd border border-bd px-3 py-2 font-bd text-sm text-white focus:outline-hidden focus:border-or transition-colors"
                     />
                 </div>
                 <div>
@@ -194,7 +194,7 @@ function BookingModal({
                     </label>
                     <select
                         name="goal"
-                        className="w-full bg-cd border border-bd px-3 py-2 font-bd text-sm text-white focus:outline-none focus:border-or transition-colors"
+                        className="w-full bg-cd border border-bd px-3 py-2 font-bd text-sm text-white focus:outline-hidden focus:border-or transition-colors"
                     >
                         <option value="muscle">Build Muscle</option>
                         <option value="fatloss">Lose Fat</option>

@@ -37,8 +37,8 @@ export default function Hero() {
                     alt="Athlete training"
                     className="w-full h-full object-cover grayscale contrast-[1.3] brightness-[0.7] transition-all duration-700 hover:grayscale-0 hover:contrast-[1.15] hover:brightness-[0.85]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-forge-black via-forge-black/90 to-forge-black/50" />
-                <div className="absolute inset-0 bg-gradient-to-t from-forge-black via-transparent to-forge-black/40" />
+                <div className="absolute inset-0 bg-linear-to-r from-forge-black via-forge-black/90 to-forge-black/50" />
+                <div className="absolute inset-0 bg-linear-to-t from-forge-black via-transparent to-forge-black/40" />
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 pt-32 pb-20 md:pt-40 md:pb-28 w-full">
@@ -150,13 +150,13 @@ export default function Hero() {
                         className="lg:col-span-5"
                     >
                         <div className="relative">
-                            <div className="relative overflow-hidden rounded-sm">
+                            <div className="relative overflow-hidden rounded-xs">
                                 <img
                                     src="https://picsum.photos/seed/forge-coach-main/600/750.jpg"
                                     alt="Head Coach"
                                     className="w-full h-[400px] md:h-[500px] object-cover object-top grayscale contrast-[1.2] brightness-[0.75] transition-all duration-500 hover:grayscale-0 hover:contrast-[1.1] hover:brightness-[0.9] hover:scale-105"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-forge-black via-transparent to-transparent" />
+                                <div className="absolute inset-0 bg-linear-to-t from-forge-black via-transparent to-transparent" />
                                 <div className="absolute bottom-0 left-0 right-0 p-5">
                                     <div className="flex items-end justify-between">
                                         <div>
@@ -184,7 +184,7 @@ export default function Hero() {
                                 {coaches.map((coach) => (
                                     <div
                                         key={coach.name}
-                                        className="relative flex-1 overflow-hidden rounded-sm h-24 group"
+                                        className="relative flex-1 overflow-hidden rounded-xs h-24 group"
                                     >
                                         <img
                                             src={coach.img}
@@ -199,7 +199,7 @@ export default function Hero() {
                                 ))}
                                 <Link
                                     href="#coaches"
-                                    className="relative flex-1 overflow-hidden rounded-sm h-24 bg-forge-gray flex items-center justify-center group cursor-pointer border border-white/5 hover:border-forge-orange/30 transition-all"
+                                    className="relative flex-1 overflow-hidden rounded-xs h-24 bg-forge-gray flex items-center justify-center group cursor-pointer border border-white/5 hover:border-forge-orange/30 transition-all"
                                 >
                                     <div className="text-center">
                                         <div className="font-heading text-lg font-bold text-white group-hover:text-forge-orange transition-colors">

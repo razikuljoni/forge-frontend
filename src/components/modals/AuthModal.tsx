@@ -79,7 +79,7 @@ function AuthModal({ open, onClose }: { open: boolean; onClose: (v: boolean) => 
                         <input
                             name="name"
                             required
-                            className="w-full bg-forge-gray border border-bd px-3 py-2 font-body text-sm text-white focus:outline-none focus:border-or transition-colors"
+                            className="w-full bg-forge-gray border border-bd px-3 py-2 font-body text-sm text-white focus:outline-hidden focus:border-or transition-colors"
                             placeholder="Your name"
                         />
                     </div>
@@ -92,7 +92,7 @@ function AuthModal({ open, onClose }: { open: boolean; onClose: (v: boolean) => 
                         name="email"
                         type="email"
                         required
-                        className="w-full bg-forge-gray border border-bd px-3 py-2 font-body text-sm text-white focus:outline-none focus:border-or transition-colors"
+                        className="w-full bg-forge-gray border border-bd px-3 py-2 font-body text-sm text-white focus:outline-hidden focus:border-or transition-colors"
                         placeholder="you@email.com"
                     />
                 </div>
@@ -104,7 +104,7 @@ function AuthModal({ open, onClose }: { open: boolean; onClose: (v: boolean) => 
                         <input
                             name="phone"
                             type="tel"
-                            className="w-full bg-forge-gray border border-bd px-3 py-2 font-body text-sm text-white focus:outline-none focus:border-or transition-colors"
+                            className="w-full bg-forge-gray border border-bd px-3 py-2 font-body text-sm text-white focus:outline-hidden focus:border-or transition-colors"
                             placeholder="(555) 000-0000"
                         />
                     </div>
@@ -118,7 +118,7 @@ function AuthModal({ open, onClose }: { open: boolean; onClose: (v: boolean) => 
                         type="password"
                         required
                         minLength={6}
-                        className="w-full bg-forge-gray border border-bd px-3 py-2 font-body text-sm text-white focus:outline-none focus:border-or transition-colors"
+                        className="w-full bg-forge-gray border border-bd px-3 py-2 font-body text-sm text-white focus:outline-hidden focus:border-or transition-colors"
                         placeholder="Min 6 characters"
                     />
                 </div>
@@ -132,7 +132,7 @@ function AuthModal({ open, onClose }: { open: boolean; onClose: (v: boolean) => 
                             type="password"
                             required
                             minLength={6}
-                            className="w-full bg-forge-gray border border-bd px-3 py-2 font-body text-sm text-white focus:outline-none focus:border-or transition-colors"
+                            className="w-full bg-forge-gray border border-bd px-3 py-2 font-body text-sm text-white focus:outline-hidden focus:border-or transition-colors"
                             placeholder="Repeat password"
                         />
                     </div>

@@ -141,7 +141,7 @@ export default function Navbar() {
             {/* Mobile Overlay */}
             {isOpen && (
                 <div
-                    className="fixed inset-0 bg-black/60 z-40 backdrop-blur-sm"
+                    className="fixed inset-0 bg-black/60 z-40 backdrop-blur-xs"
                     onClick={() => setIsOpen(false)}
                 />
             )}

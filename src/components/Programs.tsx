@@ -28,8 +28,8 @@ function ProgramCard({ title, description, price, image, intensity, tags, icon, 
           alt={title} 
           className="w-full h-full object-cover grayscale contrast-[1.2] transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0" 
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-forge-gray via-forge-gray/50 to-transparent" />
-        <div className="absolute top-4 left-4 flex items-center gap-1.5 bg-forge-black/80 px-3 py-1.5 backdrop-blur-sm">
+        <div className="absolute inset-0 bg-linear-to-t from-forge-gray via-forge-gray/50 to-transparent" />
+        <div className="absolute top-4 left-4 flex items-center gap-1.5 bg-forge-black/80 px-3 py-1.5 backdrop-blur-xs">
           <div className={`w-1.5 h-1.5 rounded-full ${intensity.color}`} />
           <span className="text-[9px] font-bold uppercase tracking-wider text-white">{intensity.label}</span>
         </div>

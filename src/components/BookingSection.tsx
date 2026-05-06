@@ -51,7 +51,7 @@ export default function BookingSection() {
                                 "Personalized Plan Preview",
                             ].map((item, idx) => (
                                 <div key={idx} className="flex items-center gap-3">
-                                    <div className="w-4 h-4 bg-forge-orange flex items-center justify-center flex-shrink-0">
+                                    <div className="w-4 h-4 bg-forge-orange flex items-center justify-center shrink-0">
                                         <Icon
                                             icon="lucide:check"
                                             className="text-forge-black"
@@ -98,7 +98,7 @@ export default function BookingSection() {
 
                     {/* Booking Form */}
                     <div className="relative">
-                        <div className="bg-forge-gray border border-white/10 p-6 md:p-10 rounded-sm relative z-10">
+                        <div className="bg-forge-gray border border-white/10 p-6 md:p-10 rounded-xs relative z-10">
                             <div className="mb-8">
                                 <h3 className="font-heading text-2xl font-bold uppercase text-white mb-2">
                                     Book Your Free Trial
@@ -119,7 +119,7 @@ export default function BookingSection() {
                                             required
                                             type="text"
                                             placeholder="John"
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white text-sm focus:border-forge-orange outline-none transition-all"
+                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white text-sm focus:border-forge-orange outline-hidden transition-all"
                                         />
                                     </div>
                                     <div className="space-y-1">
@@ -130,7 +130,7 @@ export default function BookingSection() {
                                             required
                                             type="text"
                                             placeholder="Doe"
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white text-sm focus:border-forge-orange outline-none transition-all"
+                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white text-sm focus:border-forge-orange outline-hidden transition-all"
                                         />
                                     </div>
                                 </div>
@@ -143,7 +143,7 @@ export default function BookingSection() {
                                         required
                                         type="email"
                                         placeholder="john@example.com"
-                                        className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white text-sm focus:border-forge-orange outline-none transition-all"
+                                        className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white text-sm focus:border-forge-orange outline-hidden transition-all"
                                     />
                                 </div>
 
@@ -155,7 +155,7 @@ export default function BookingSection() {
                                         required
                                         type="tel"
                                         placeholder="+1 (555) 000-0000"
-                                        className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white text-sm focus:border-forge-orange outline-none transition-all"
+                                        className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white text-sm focus:border-forge-orange outline-hidden transition-all"
                                     />
                                 </div>
 
@@ -164,7 +164,7 @@ export default function BookingSection() {
                                         Your Goal *
                                     </label>
                                     <div className="relative">
-                                        <select className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white text-sm focus:border-forge-orange outline-none appearance-none transition-all">
+                                        <select className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white text-sm focus:border-forge-orange outline-hidden appearance-none transition-all">
                                             <option className="bg-forge-gray">
                                                 Select your primary goal
                                             </option>
