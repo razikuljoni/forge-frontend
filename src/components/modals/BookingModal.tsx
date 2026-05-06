@@ -1,52 +1,52 @@
-"use client";
+'use client'
 
-import { Modal } from "@/components/ui/Modal";
-import { api } from "@/lib/api";
-import { useAuth } from "@/providers/AuthProvider";
-import { useBookings } from "@/providers/BookingProvider";
-import { useToast } from "@/providers/ToastProvider";
-import type { BookingPrefill, Program } from "@/types";
-import { useEffect, useState, type FormEvent } from "react";
+import { Modal } from '@/components/ui/Modal'
+import { api } from '@/lib/api'
+import { useAuth } from '@/providers/AuthProvider'
+import { useBookings } from '@/providers/BookingProvider'
+import { useToast } from '@/providers/ToastProvider'
+import type { BookingPrefill, Program } from '@/types'
+import { useEffect, useState, type FormEvent } from 'react'
 
-const TIME_SLOTS = ["06:00", "07:30", "09:00", "12:00", "17:00", "18:30", "20:00"];
+const TIME_SLOTS = ['06:00', '07:30', '09:00', '12:00', '17:00', '18:30', '20:00']
 
 function BookingModal({
     open,
     onClose,
     prefill,
 }: {
-    open: boolean;
-    onClose: () => void;
-    prefill?: BookingPrefill;
+    open: boolean
+    onClose: () => void
+    prefill?: BookingPrefill
 }) {
-    const { user } = useAuth();
-    const { create } = useBookings();
-    const { toast } = useToast();
+    const { user } = useAuth()
+    const { create } = useBookings()
+    const { toast } = useToast()
 
-    const [programs, setPrograms] = useState<Program[]>([]);
-    const [selectedTime, setSelectedTime] = useState(prefill?.time || "");
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+    const [programs, setPrograms] = useState<Program[]>([])
+    const [selectedTime, setSelectedTime] = useState(prefill?.time || '')
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState('')
 
     useEffect(() => {
         if (open) {
             api.getPrograms()
                 .then((res) => setPrograms(res.data))
-                .catch(() => {});
+                .catch(() => {})
             // setSelectedTime(prefill?.time || "");
         }
-    }, [open, prefill?.time]);
+    }, [open, prefill?.time])
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+        e.preventDefault()
         if (!selectedTime) {
-            setError("Please select a time.");
-            return;
+            setError('Please select a time.')
+            return
         }
 
-        setLoading(true);
-        setError("");
-        const data = Object.fromEntries(new FormData(e.currentTarget));
+        setLoading(true)
+        setError('')
+        const data = Object.fromEntries(new FormData(e.currentTarget))
 
         try {
             await create({
@@ -56,18 +56,18 @@ function BookingModal({
                 level: data.level as string,
                 goal: data.goal as string,
                 notes: data.notes as string,
-            });
-            toast(`Trial booked for ${data.date} at ${selectedTime}. See you at FORGE.`, "success");
-            onClose();
+            })
+            toast(`Trial booked for ${data.date} at ${selectedTime}. See you at FORGE.`, 'success')
+            onClose()
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (err: any) {
-            setError(err.message || "Booking failed.");
-            setLoading(false);
-            toast(err.message || "Booking failed.", "error");
+            setError(err.message || 'Booking failed.')
+            setLoading(false)
+            toast(err.message || 'Booking failed.', 'error')
         }
-    };
+    }
 
-    if (error) toast(error, "error");
+    if (error) toast(error, 'error')
 
     return (
         <Modal open={open} onClose={onClose}>
@@ -142,8 +142,8 @@ function BookingModal({
                         name="date"
                         type="date"
                         required
-                        defaultValue={new Date().toISOString().split("T")[0]}
-                        min={new Date().toISOString().split("T")[0]}
+                        defaultValue={new Date().toISOString().split('T')[0]}
+                        min={new Date().toISOString().split('T')[0]}
                         className="w-full bg-cd border border-bd px-3 py-2 font-bd text-sm text-white focus:outline-hidden focus:border-or transition-colors"
                     />
                 </div>
@@ -157,11 +157,11 @@ function BookingModal({
                                 key={t}
                                 type="button"
                                 onClick={() => setSelectedTime(t)}
-                                className={`font-bd text-xs px-2 py-1.5 border transition-colors ${selectedTime === t ? "border-or text-white bg-or/10" : "border-bd text-mt hover:border-or hover:text-white"}`}
+                                className={`font-bd text-xs px-2 py-1.5 border transition-colors ${selectedTime === t ? 'border-or text-white bg-or/10' : 'border-bd text-mt hover:border-or hover:text-white'}`}
                             >
-                                {new Date(`1970-01-01T${t}:00`).toLocaleTimeString("en-US", {
-                                    hour: "numeric",
-                                    minute: "2-digit",
+                                {new Date(`1970-01-01T${t}:00`).toLocaleTimeString('en-US', {
+                                    hour: 'numeric',
+                                    minute: '2-digit',
                                 })}
                             </button>
                         ))}
@@ -172,14 +172,14 @@ function BookingModal({
                         Fitness Level
                     </label>
                     <div className="flex gap-2">
-                        {["beginner", "intermediate", "advanced"].map((l) => (
+                        {['beginner', 'intermediate', 'advanced'].map((l) => (
                             <label key={l} className="flex-1 cursor-pointer">
                                 <input
                                     type="radio"
                                     name="level"
                                     value={l}
                                     className="hidden peer"
-                                    defaultChecked={l === "intermediate"}
+                                    defaultChecked={l === 'intermediate'}
                                 />
                                 <span className="block font-bd text-xs text-mt border border-bd px-2 py-1.5 text-center peer-checked:border-or peer-checked:text-white transition-colors capitalize">
                                     {l}
@@ -209,11 +209,11 @@ function BookingModal({
                     disabled={loading}
                     className="w-full font-bd text-sm tracking-widest text-white bg-or hover:bg-orl uppercase py-3 transition-colors orange-glow disabled:opacity-50"
                 >
-                    {loading ? "Booking..." : "Confirm Booking"}
+                    {loading ? 'Booking...' : 'Confirm Booking'}
                 </button>
             </form>
         </Modal>
-    );
+    )
 }
 
-export default BookingModal;
+export default BookingModal

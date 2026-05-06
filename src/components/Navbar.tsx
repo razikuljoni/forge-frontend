@@ -1,41 +1,41 @@
-"use client";
+'use client'
 
-import { useOpen } from "@/hooks";
-import { Icon } from "@iconify/react";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import AuthModal from "./modals/AuthModal";
-import BookingModal from "./modals/BookingModal";
+import { useOpen } from '@/hooks'
+import { Icon } from '@iconify/react'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import AuthModal from './modals/AuthModal'
+import BookingModal from './modals/BookingModal'
 
 const navLinks = [
-    { name: "Programs", href: "#programs" },
-    { name: "Coaches", href: "#coaches" },
-    { name: "Stories", href: "#stories" },
-    { name: "Schedule", href: "#schedule" },
-    { name: "Contact", href: "#contact" },
-];
+    { name: 'Programs', href: '#programs' },
+    { name: 'Coaches', href: '#coaches' },
+    { name: 'Stories', href: '#stories' },
+    { name: 'Schedule', href: '#schedule' },
+    { name: 'Contact', href: '#contact' },
+]
 
 export default function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
+    const [isOpen, setIsOpen] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false)
 
     // const { user, logout } = useAuth();
-    const authModal = useOpen();
-    const bookingsModal = useOpen();
+    const authModal = useOpen()
+    const bookingsModal = useOpen()
     // const mobileNav = useOpen();
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+            setIsScrolled(window.scrollY > 20)
+        }
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-                isScrolled ? "bg-forge-black/85 backdrop-blur-xl py-3" : "bg-transparent py-5"
+                isScrolled ? 'bg-forge-black/85 backdrop-blur-xl py-3' : 'bg-transparent py-5'
             }`}
         >
             <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -95,7 +95,7 @@ export default function Navbar() {
             {/* Mobile Menu */}
             <div
                 className={`fixed top-0 right-0 w-80 max-w-full h-screen bg-forge-black border-l border-white/5 z-50 transition-transform duration-400 ease-in-out ${
-                    isOpen ? "translate-x-0" : "translate-x-full"
+                    isOpen ? 'translate-x-0' : 'translate-x-full'
                 }`}
             >
                 <div className="p-6">
@@ -150,5 +150,5 @@ export default function Navbar() {
             <BookingModal open={bookingsModal.open} onClose={() => bookingsModal.setOpen(false)} />
             {/* <MyBookingsModal open={bookingsModal.open} onClose={() => bookingsModal.setOpen(false)} /> */}
         </nav>
-    );
+    )
 }

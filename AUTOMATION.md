@@ -12,19 +12,21 @@
 
 - **standard-version**: Automates version bumping (SemVer) and generates `CHANGELOG.md`.
 - **Usage**: Run `pnpm release` to:
-  1. Bump version in `package.json`.
-  2. Generate/update `CHANGELOG.md` based on commit messages.
-  3. Create a git commit and tag.
+    1. Bump version in `package.json`.
+    2. Generate/update `CHANGELOG.md` based on commit messages.
+    3. Create a git commit and tag.
 
 ### 3. Environment Variables
 
 - Use `.env.example` as a template for new developers.
+
 - In Vercel, add these variables in **Project Settings > Environment Variables**.
 
 ### 4. CI/CD (Vercel)
 
 - **Automatic Deployments**: Every push to `main` triggers a production build.
 - **Preview Deployments**: Every Pull Request creates a unique preview URL.
+
 - **Build Command**: `pnpm build`
 - **Output Directory**: `.next`
 

@@ -1,18 +1,18 @@
-"use client";
+'use client'
 
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion'
 
 interface StoryProps {
-    name: string;
-    role: string;
-    age: string;
-    weightLoss: string;
-    duration: string;
-    beforeImg: string;
-    afterImg: string;
-    quote: string;
-    tags: string[];
-    initials: string;
+    name: string
+    role: string
+    age: string
+    weightLoss: string
+    duration: string
+    beforeImg: string
+    afterImg: string
+    quote: string
+    tags: string[]
+    initials: string
 }
 
 function StoryCard({ story }: { story: StoryProps }) {
@@ -79,48 +79,48 @@ function StoryCard({ story }: { story: StoryProps }) {
                 </div>
             </div>
         </motion.div>
-    );
+    )
 }
 
 export default function Stories() {
     const stories = [
         {
-            name: "David Kim",
-            initials: "DK",
-            role: "Software Engineer",
-            age: "34 yrs",
-            weightLoss: "-18 kg",
-            duration: "6 months",
-            beforeImg: "https://picsum.photos/seed/forge-before-1/300/400.jpg",
-            afterImg: "https://picsum.photos/seed/forge-after-1/300/400.jpg",
+            name: 'David Kim',
+            initials: 'DK',
+            role: 'Software Engineer',
+            age: '34 yrs',
+            weightLoss: '-18 kg',
+            duration: '6 months',
+            beforeImg: 'https://picsum.photos/seed/forge-before-1/300/400.jpg',
+            afterImg: 'https://picsum.photos/seed/forge-after-1/300/400.jpg',
             quote: "I walked in at 96kg with zero confidence. FORGE didn't just change my body—they changed how I see myself. The coaches held me accountable when I wanted to quit.",
-            tags: ["Fat Loss", "Muscle Gain"],
+            tags: ['Fat Loss', 'Muscle Gain'],
         },
         {
-            name: "Amanda Lin",
-            initials: "AL",
-            role: "Marketing Director",
-            age: "29 yrs",
-            weightLoss: "-12 kg",
-            duration: "4 months",
-            beforeImg: "https://picsum.photos/seed/forge-before-2/300/400.jpg",
-            afterImg: "https://picsum.photos/seed/forge-after-2/300/400.jpg",
-            quote: "As a woman, I was intimidated by the hardcore gym culture. FORGE proved me wrong. The community here is incredibly supportive. I deadlifted 100kg last month!",
-            tags: ["Strength", "Body Recomp"],
+            name: 'Amanda Lin',
+            initials: 'AL',
+            role: 'Marketing Director',
+            age: '29 yrs',
+            weightLoss: '-12 kg',
+            duration: '4 months',
+            beforeImg: 'https://picsum.photos/seed/forge-before-2/300/400.jpg',
+            afterImg: 'https://picsum.photos/seed/forge-after-2/300/400.jpg',
+            quote: 'As a woman, I was intimidated by the hardcore gym culture. FORGE proved me wrong. The community here is incredibly supportive. I deadlifted 100kg last month!',
+            tags: ['Strength', 'Body Recomp'],
         },
         {
-            name: "Julian Marc",
-            initials: "JM",
-            role: "Entrepreneur",
-            age: "41 yrs",
-            weightLoss: "+8 kg",
-            duration: "8 months",
-            beforeImg: "https://picsum.photos/seed/forge-before-3/300/400.jpg",
-            afterImg: "https://picsum.photos/seed/forge-after-3/300/400.jpg",
+            name: 'Julian Marc',
+            initials: 'JM',
+            role: 'Entrepreneur',
+            age: '41 yrs',
+            weightLoss: '+8 kg',
+            duration: '8 months',
+            beforeImg: 'https://picsum.photos/seed/forge-before-3/300/400.jpg',
+            afterImg: 'https://picsum.photos/seed/forge-after-3/300/400.jpg',
             quote: "I had the time but not the plan. The custom programming at Forge took the guesswork out of my training. I'm in the best shape of my life at 40.",
-            tags: ["Hypertrophy", "Longevity"],
+            tags: ['Hypertrophy', 'Longevity'],
         },
-    ];
+    ]
 
     return (
         <section id="stories" className="relative py-20 md:py-28 bg-forge-dark">
@@ -151,5 +151,5 @@ export default function Stories() {
                 </div>
             </div>
         </section>
-    );
+    )
 }

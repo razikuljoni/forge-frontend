@@ -1,22 +1,22 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client";
+'use client'
 
-import { Icon } from "@iconify/react";
-import React, { useState } from "react";
+import { Icon } from '@iconify/react'
+import React, { useState } from 'react'
 
 export default function BookingSection() {
-    const [submitted, setSubmitted] = useState(false);
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitted, setSubmitted] = useState(false)
+    const [isSubmitting, setIsSubmitting] = useState(false)
 
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
+        e.preventDefault()
+        setIsSubmitting(true)
         setTimeout(() => {
-            setIsSubmitting(false);
-            setSubmitted(true);
-            setTimeout(() => setSubmitted(false), 3000);
-        }, 1500);
-    };
+            setIsSubmitting(false)
+            setSubmitted(true)
+            setTimeout(() => setSubmitted(false), 3000)
+        }, 1500)
+    }
 
     return (
         <section id="book" className="relative py-20 md:py-28 bg-forge-black overflow-hidden">
@@ -45,10 +45,10 @@ export default function BookingSection() {
 
                         <div className="grid sm:grid-cols-2 gap-4 max-w-lg">
                             {[
-                                "Free InBody Assessment",
-                                "Full Facility Access",
-                                "1-on-1 Coach Consultation",
-                                "Personalized Plan Preview",
+                                'Free InBody Assessment',
+                                'Full Facility Access',
+                                '1-on-1 Coach Consultation',
+                                'Personalized Plan Preview',
                             ].map((item, idx) => (
                                 <div key={idx} className="flex items-center gap-3">
                                     <div className="w-4 h-4 bg-forge-orange flex items-center justify-center shrink-0">
@@ -190,14 +190,14 @@ export default function BookingSection() {
                                         Experience Level
                                     </label>
                                     <div className="flex gap-2">
-                                        {["Beginner", "Intermediate", "Advanced"].map((level) => (
+                                        {['Beginner', 'Intermediate', 'Advanced'].map((level) => (
                                             <label key={level} className="flex-1 cursor-pointer">
                                                 <input
                                                     type="radio"
                                                     name="level"
                                                     value={level.toLowerCase()}
                                                     className="sr-only peer"
-                                                    defaultChecked={level === "Beginner"}
+                                                    defaultChecked={level === 'Beginner'}
                                                 />
                                                 <div className="text-center py-2.5 text-[10px] font-bold uppercase tracking-wider border border-white/10 text-forge-silver peer-checked:border-forge-orange peer-checked:text-forge-orange peer-checked:bg-forge-orange/10 transition-all hover:border-white/20">
                                                     {level}
@@ -211,7 +211,7 @@ export default function BookingSection() {
                                     type="submit"
                                     disabled={isSubmitting}
                                     className={`w-full bg-forge-orange hover:bg-forge-orangeLight text-forge-black text-xs font-bold uppercase tracking-wider px-8 py-4 transition-all duration-200 flex items-center justify-center gap-2 ${
-                                        submitted ? "bg-green-600" : ""
+                                        submitted ? 'bg-green-600' : ''
                                     }`}
                                 >
                                     {isSubmitting ? (
@@ -241,5 +241,5 @@ export default function BookingSection() {
                 </div>
             </div>
         </section>
-    );
+    )
 }

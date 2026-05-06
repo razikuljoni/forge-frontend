@@ -1,27 +1,24 @@
-"use client";
+'use client'
 
-import { Modal } from "@/components/ui/Modal";
-import { useBookings } from "@/providers/BookingProvider";
-import type { Coach } from "@/types";
+import { Modal } from '@/components/ui/Modal'
+import { useBookings } from '@/providers/BookingProvider'
+import type { Coach } from '@/types'
 
 export function CoachDetailModal({
     open,
     onClose,
     coach,
 }: {
-    open: boolean;
-    onClose: () => void;
-    coach: Coach;
+    open: boolean
+    onClose: () => void
+    coach: Coach
 }) {
-    const { openBooking } = useBookings();
+    const { openBooking } = useBookings()
 
     const handleBook = () => {
-        onClose();
-        setTimeout(
-            () => openBooking({ programName: `${coach.name.split(" ")[0]}'s Session` }),
-            200,
-        );
-    };
+        onClose()
+        setTimeout(() => openBooking({ programName: `${coach.name.split(' ')[0]}'s Session` }), 200)
+    }
 
     return (
         <Modal open={open} onClose={onClose}>
@@ -95,8 +92,8 @@ export function CoachDetailModal({
                 onClick={handleBook}
                 className="w-full font-bd text-sm tracking-widest text-white bg-or hover:bg-orl uppercase py-2.5 transition-colors"
             >
-                Book a Session with {coach.name.split(" ")[0]}
+                Book a Session with {coach.name.split(' ')[0]}
             </button>
         </Modal>
-    );
+    )
 }

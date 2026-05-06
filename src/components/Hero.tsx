@@ -1,22 +1,22 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client";
+'use client'
 
-import { Icon } from "@iconify/react";
-import { motion, type Variants } from "framer-motion";
-import Link from "next/link";
-import React from "react";
+import { Icon } from '@iconify/react'
+import { motion, type Variants } from 'framer-motion'
+import Link from 'next/link'
+import React from 'react'
 
 const stats = [
-    { label: "Active Members", value: "2,400+" },
-    { label: "Goal Achievement", value: "98%" },
-    { label: "Elite Coaches", value: "15+" },
-];
+    { label: 'Active Members', value: '2,400+' },
+    { label: 'Goal Achievement', value: '98%' },
+    { label: 'Elite Coaches', value: '15+' },
+]
 
 const coaches = [
-    { name: "Sarah K.", img: "https://picsum.photos/seed/forge-coach-2/300/200.jpg" },
-    { name: "James R.", img: "https://picsum.photos/seed/forge-coach-3/300/200.jpg" },
-    { name: "Mia L.", img: "https://picsum.photos/seed/forge-coach-4/300/200.jpg" },
-];
+    { name: 'Sarah K.', img: 'https://picsum.photos/seed/forge-coach-2/300/200.jpg' },
+    { name: 'James R.', img: 'https://picsum.photos/seed/forge-coach-3/300/200.jpg' },
+    { name: 'Mia L.', img: 'https://picsum.photos/seed/forge-coach-4/300/200.jpg' },
+]
 
 const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 30 },
@@ -25,7 +25,7 @@ const fadeInUp: Variants = {
         y: 0,
         transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
     },
-};
+}
 
 export default function Hero() {
     return (
@@ -224,5 +224,5 @@ export default function Hero() {
                 <Icon icon="lucide:chevron-down" className="text-forge-orange" width="16" />
             </div>
         </section>
-    );
+    )
 }

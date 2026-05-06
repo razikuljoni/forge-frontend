@@ -1,27 +1,27 @@
-"use client";
+'use client'
 
-import { createContext, useCallback, useContext, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useState, type ReactNode } from 'react'
 
-type ToastType = "success" | "error" | "info";
+type ToastType = 'success' | 'error' | 'info'
 interface Toast {
-    id: number;
-    message: string;
-    type: ToastType;
+    id: number
+    message: string
+    type: ToastType
 }
 interface ToastContextType {
-    toast: (message: string, type?: ToastType) => void;
+    toast: (message: string, type?: ToastType) => void
 }
 
-const ToastContext = createContext<ToastContextType | null>(null);
+const ToastContext = createContext<ToastContextType | null>(null)
 
 export function ToastProvider({ children }: { children: ReactNode }) {
-    const [toasts, setToasts] = useState<Toast[]>([]);
+    const [toasts, setToasts] = useState<Toast[]>([])
 
-    const addToast = useCallback((message: string, type: ToastType = "info") => {
-        const id = Date.now();
-        setToasts((t) => [...t, { id, message, type }]);
-        setTimeout(() => setToasts((t) => t.filter((x) => x.id !== id)), 4000);
-    }, []);
+    const addToast = useCallback((message: string, type: ToastType = 'info') => {
+        const id = Date.now()
+        setToasts((t) => [...t, { id, message, type }])
+        setTimeout(() => setToasts((t) => t.filter((x) => x.id !== id)), 4000)
+    }, [])
 
     return (
         <ToastContext.Provider value={{ toast: addToast }}>
@@ -36,18 +36,18 @@ export function ToastProvider({ children }: { children: ReactNode }) {
                         className="bg-dk border border-sv/30 px-4 py-3 flex items-start gap-3 toast-in"
                     >
                         <i
-                            className={`fas ${t.type === "success" ? "fa-check-circle text-green-400" : t.type === "error" ? "fa-exclamation-circle text-red-400" : "fa-info-circle text-sv"} mt-0.5`}
+                            className={`fas ${t.type === 'success' ? 'fa-check-circle text-green-400' : t.type === 'error' ? 'fa-exclamation-circle text-red-400' : 'fa-info-circle text-sv'} mt-0.5`}
                         />
                         <p className="font-bd text-sm text-sv leading-snug">{t.message}</p>
                     </div>
                 ))}
             </div>
         </ToastContext.Provider>
-    );
+    )
 }
 
 export function useToast() {
-    const ctx = useContext(ToastContext);
-    if (!ctx) throw new Error("useToast must be used within ToastProvider");
-    return ctx;
+    const ctx = useContext(ToastContext)
+    if (!ctx) throw new Error('useToast must be used within ToastProvider')
+    return ctx
 }
