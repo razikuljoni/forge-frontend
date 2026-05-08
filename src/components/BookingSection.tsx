@@ -3,18 +3,26 @@
 
 import { Icon } from '@iconify/react'
 import React, { useState } from 'react'
+import toast from 'react-hot-toast'
+import BookingForm from './ui/BookingForm'
 
 export default function BookingSection() {
     const [submitted, setSubmitted] = useState(false)
     const [isSubmitting, setIsSubmitting] = useState(false)
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
+    const handleSubmit = (values: Record<string, string>, form: HTMLFormElement) => {
+        if (!values.time) {
+            toast.error('Please select a preferred time.')
+            return
+        }
+
         setIsSubmitting(true)
         setTimeout(() => {
             setIsSubmitting(false)
             setSubmitted(true)
             setTimeout(() => setSubmitted(false), 3000)
+            toast.success('Your free trial is booked!')
+            form.reset()
         }, 1500)
     }
 
@@ -99,7 +107,7 @@ export default function BookingSection() {
                     {/* Booking Form */}
                     <div className="relative">
                         <div className="bg-forge-gray border border-white/10 p-6 md:p-10 rounded-xs relative z-10">
-                            <div className="mb-8">
+                            <div className="mb-6">
                                 <h3 className="font-heading text-2xl font-bold uppercase text-white mb-2">
                                     Book Your Free Trial
                                 </h3>
@@ -109,133 +117,22 @@ export default function BookingSection() {
                                 </p>
                             </div>
 
-                            <form onSubmit={handleSubmit} className="space-y-5">
-                                <div className="grid md:grid-cols-2 gap-4">
-                                    <div className="space-y-1">
-                                        <label className="text-[10px] font-bold uppercase tracking-wider text-forge-silver">
-                                            First Name *
-                                        </label>
-                                        <input
-                                            required
-                                            type="text"
-                                            placeholder="John"
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white text-sm focus:border-forge-orange outline-hidden transition-all"
-                                        />
-                                    </div>
-                                    <div className="space-y-1">
-                                        <label className="text-[10px] font-bold uppercase tracking-wider text-forge-silver">
-                                            Last Name *
-                                        </label>
-                                        <input
-                                            required
-                                            type="text"
-                                            placeholder="Doe"
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white text-sm focus:border-forge-orange outline-hidden transition-all"
-                                        />
-                                    </div>
-                                </div>
+                            <BookingForm
+                                onSubmit={handleSubmit}
+                                submitLabel={
+                                    isSubmitting
+                                        ? 'Processing...'
+                                        : submitted
+                                          ? '✓ Booking Confirmed!'
+                                          : 'Claim Your Free Trial Class'
+                                }
+                                loading={isSubmitting}
+                            />
 
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-bold uppercase tracking-wider text-forge-silver">
-                                        Email *
-                                    </label>
-                                    <input
-                                        required
-                                        type="email"
-                                        placeholder="john@example.com"
-                                        className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white text-sm focus:border-forge-orange outline-hidden transition-all"
-                                    />
-                                </div>
-
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-bold uppercase tracking-wider text-forge-silver">
-                                        Phone *
-                                    </label>
-                                    <input
-                                        required
-                                        type="tel"
-                                        placeholder="+1 (555) 000-0000"
-                                        className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white text-sm focus:border-forge-orange outline-hidden transition-all"
-                                    />
-                                </div>
-
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-bold uppercase tracking-wider text-forge-silver">
-                                        Your Goal *
-                                    </label>
-                                    <div className="relative">
-                                        <select className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white text-sm focus:border-forge-orange outline-hidden appearance-none transition-all">
-                                            <option className="bg-forge-gray">
-                                                Select your primary goal
-                                            </option>
-                                            <option className="bg-forge-gray">Muscle Gain</option>
-                                            <option className="bg-forge-gray">Fat Loss</option>
-                                            <option className="bg-forge-gray">
-                                                Overall Health
-                                            </option>
-                                            <option className="bg-forge-gray">
-                                                Athletic Performance
-                                            </option>
-                                        </select>
-                                        <Icon
-                                            icon="lucide:chevron-down"
-                                            className="absolute right-4 top-1/2 -translate-y-1/2 text-forge-silver pointer-events-none"
-                                            width="16"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-bold uppercase tracking-wider text-forge-silver">
-                                        Experience Level
-                                    </label>
-                                    <div className="flex gap-2">
-                                        {['Beginner', 'Intermediate', 'Advanced'].map((level) => (
-                                            <label key={level} className="flex-1 cursor-pointer">
-                                                <input
-                                                    type="radio"
-                                                    name="level"
-                                                    value={level.toLowerCase()}
-                                                    className="sr-only peer"
-                                                    defaultChecked={level === 'Beginner'}
-                                                />
-                                                <div className="text-center py-2.5 text-[10px] font-bold uppercase tracking-wider border border-white/10 text-forge-silver peer-checked:border-forge-orange peer-checked:text-forge-orange peer-checked:bg-forge-orange/10 transition-all hover:border-white/20">
-                                                    {level}
-                                                </div>
-                                            </label>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                    className={`w-full bg-forge-orange hover:bg-forge-orangeLight text-forge-black text-xs font-bold uppercase tracking-wider px-8 py-4 transition-all duration-200 flex items-center justify-center gap-2 ${
-                                        submitted ? 'bg-green-600' : ''
-                                    }`}
-                                >
-                                    {isSubmitting ? (
-                                        <>
-                                            <div className="w-4 h-4 border-2 border-forge-black border-t-transparent rounded-full animate-spin" />
-                                            <span>Processing...</span>
-                                        </>
-                                    ) : submitted ? (
-                                        <>
-                                            <Icon icon="lucide:check-circle" width="16" />
-                                            <span>Booking Confirmed!</span>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <span>Claim Your Free Trial Class</span>
-                                            <Icon icon="lucide:arrow-right" width="16" />
-                                        </>
-                                    )}
-                                </button>
-                                <p className="text-[10px] text-forge-silverDark text-center">
-                                    By signing up, you agree to our Terms of Service. No credit card
-                                    required.
-                                </p>
-                            </form>
+                            <p className="text-xs text-forge-silverDark text-center mt-3">
+                                By signing up, you agree to our Terms of Service. No credit card
+                                required.
+                            </p>
                         </div>
                     </div>
                 </div>
