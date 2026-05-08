@@ -2,12 +2,11 @@
 
 import { Modal } from '@/components/ui/Modal'
 import { useAuth } from '@/providers/AuthProvider'
-import { useToast } from '@/providers/ToastProvider'
 import { useState, type FormEvent } from 'react'
+import toast from 'react-hot-toast'
 
 function AuthModal({ open, onClose }: { open: boolean; onClose: (v: boolean) => void }) {
     const { login, register } = useAuth()
-    const { toast } = useToast()
     const [mode, setMode] = useState<'login' | 'signup'>('login')
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
@@ -27,27 +26,33 @@ function AuthModal({ open, onClose }: { open: boolean; onClose: (v: boolean) => 
 
         try {
             if (mode === 'login') {
-                await login(data.email as string, data.password as string)
-                toast('Welcome back.', 'success')
+                // await login(data.email as string, data.password as string)
+                setTimeout(() => {
+                    toast.success('Welcome back. Sign In Successfully!')
+                    resetAndClose()
+                }, 1500)
             } else {
                 if (data.password !== data.confirmPassword) {
                     setError('Passwords do not match.')
                     setLoading(false)
                     return
                 }
-                await register({
-                    name: data.name as string,
-                    email: data.email as string,
-                    password: data.password as string,
-                    phone: data.phone as string,
-                })
-                toast('Account created. Welcome to FORGE.', 'success')
+                // await register({
+                //     name: data.name as string,
+                //     email: data.email as string,
+                //     password: data.password as string,
+                //     phone: data.phone as string,
+                // })
+                setTimeout(() => {
+                    toast('Account created. Welcome to FORGE.')
+                    resetAndClose()
+                }, 1500)
             }
-            resetAndClose()
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (err: any) {
             setError(err.message || 'Authentication failed.')
             setLoading(false)
+            toast.error(err.message || 'Authentication failed.')
         }
     }
 
@@ -105,7 +110,7 @@ function AuthModal({ open, onClose }: { open: boolean; onClose: (v: boolean) => 
                             name="phone"
                             type="tel"
                             className="w-full bg-forge-gray border border-bd px-3 py-2 font-body text-sm text-white focus:outline-hidden focus:border-or transition-colors"
-                            placeholder="(555) 000-0000"
+                            placeholder="(+880) 1623-208660"
                         />
                     </div>
                 )}
@@ -143,7 +148,7 @@ function AuthModal({ open, onClose }: { open: boolean; onClose: (v: boolean) => 
                 <button
                     type="submit"
                     disabled={loading}
-                    className="w-full font-body text-sm tracking-widest text-white bg-or hover:bg-orl uppercase py-2.5 transition-colors disabled:opacity-50"
+                    className="w-full font-heading tracking-widest text-sm  text-white bg-or hover:bg-orl uppercase py-2.5 transition-colors disabled:opacity-50 cursor-pointer"
                 >
                     {loading ? 'Processing...' : mode === 'login' ? 'Sign In' : 'Create Account'}
                 </button>
@@ -152,7 +157,7 @@ function AuthModal({ open, onClose }: { open: boolean; onClose: (v: boolean) => 
             <div className="mt-4 text-center">
                 <button
                     onClick={toggleMode}
-                    className="font-body text-sm text-mt hover:text-or transition-colors"
+                    className="font-body text-sm text-mt hover:text-or transition-colors cursor-pointer"
                 >
                     {mode === 'login' ? "Don't have an account? " : 'Already have an account? '}
                     <span className="text-or underline">

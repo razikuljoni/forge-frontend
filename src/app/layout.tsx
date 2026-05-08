@@ -3,6 +3,7 @@ import { BookingProvider } from '@/providers/BookingProvider'
 import { ToastProvider } from '@/providers/ToastProvider'
 import type { Metadata } from 'next'
 import { Inter, Oswald } from 'next/font/google'
+import { Toaster } from 'react-hot-toast'
 import './globals.css'
 
 const inter = Inter({
@@ -31,6 +32,7 @@ export default function RootLayout({
                 <AuthProvider>
                     <ToastProvider>
                         <BookingProvider>{children}</BookingProvider>
+                        <Toaster />
                     </ToastProvider>
                 </AuthProvider>
             </body>
